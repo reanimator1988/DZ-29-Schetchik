@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     entry: './src/index.jsx',
@@ -10,7 +9,7 @@ module.exports = {
         filename: 'App-[fullhash].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
-        publicPath: '/'
+        publicPath: './'
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -18,11 +17,6 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: 'styles-[fullhash].css'
-        }),
-        new CopyPlugin({
-            patterns: [
-                { from: "static", to: "static" }
-            ],
         }),
     ],
     module: {

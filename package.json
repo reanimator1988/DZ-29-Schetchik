@@ -1,8 +1,9 @@
 {
-  "name": "dz-28-prostoy-sayt-na-reakte",
+  "name": "dz-29-schetchik",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://reanimator1988.github.io/DZ-29-Schetchik",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --mode=development --open",
