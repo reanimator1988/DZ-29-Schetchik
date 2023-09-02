@@ -1,33 +1,49 @@
-import React, { useState } from "react";
+import React, { Component } from 'react';
 
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: props.initialValue,
+    };
+  }
 
-function Counter(props) {
-  const [count, setCount] = useState(props.initialValue);
-
-  const decrement = () => {
-    setCount(count - 1);
+  decrement = () => {
+    this.setState((prevState) => ({
+      count: prevState.count - 1,
+    }));
   };
 
-  const increment = () => {
-    setCount(count + 1);
+  increment = () => {
+    this.setState((prevState) => ({
+      count: prevState.count + 1,
+    }));
   };
 
-  const reset = () => {
-    setCount(props.initialValue);
+  reset = () => {
+    this.setState({
+      count: this.props.initialValue,
+    });
   };
 
-  return (
-    <div>
-      <h1>ДЗ 29. Counter</h1>
-      <div className="counter">
-        <h2>Counter App</h2>
-        <div className="count">{count}</div>
-        <button onClick={decrement}>-</button>
-        <button onClick={increment}>+</button>
-        <button onClick={reset} className="reset">Reset</button>
+  render() {
+    return (
+      <div>
+        <h1>ДЗ 29. Counter</h1>
+        <div className="counter">
+          <h2>Counter App</h2>
+          <div className="count">{this.state.count}</div>
+          <button onClick={this.decrement}>-</button>
+          <button onClick={this.increment}>+</button>
+          <button onClick={this.reset} className="reset">
+            Reset
+          </button>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
+
 export default Counter;
+
 
